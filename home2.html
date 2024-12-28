@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #0047ab;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #002e73;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            position: relative;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .logout-button {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #0047ab, #5a9bd5);
+            color: white;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+        .intro {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #e2f1ff;
+        }
+        .intro h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .intro p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #0047ab;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(0,0,0,0.4); /* Black with opacity */
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Logout Modal Styles */
+        .logout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .logout-modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .logout-modal-content h3 {
+            margin: 0 0 10px;
+        }
+        .logout-modal-content button {
+            margin-top: 15px;
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .logout-modal-content button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Finance Solutions</h1>
+        <p>Your trusted partner in financial success</p>
+    </header>
+
+    <nav>
+        <a href="home2.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        
+        <!-- Logout Button -->
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </nav>
+
+    <section class="hero">
+        <h1>Take Control of Your Financial Future</h1>
+        <p>Explore our expert financial services tailored for your needs.</p>
+    </section>
+
+    <section class="intro">
+        <h2>Welcome to Finance Solutions</h2>
+        <p>At Finance Solutions, we are dedicated to helping individuals and businesses achieve their financial goals. Whether you're planning for retirement, optimizing your taxes, or investing for the future, we offer expert advice and personalized solutions. Our services include:</p>
+        <ul>
+            <li><strong>Wealth Management:</strong> Grow and protect your assets with strategies tailored to your financial situation.</li>
+            <li><strong>Debt Counselling:</strong> Take control of your financial health by managing and reducing debt effectively.</li>
+            <li><strong>Financial Education:</strong> Empower yourself with knowledge to make informed decisions about your finances.</li>
+            <li><strong>Investment Planning:</strong> Maximize your wealth with our expert investment strategies.</li>
+            <li><strong>Tax Optimization:</strong> Reduce your tax burden with our smart planning techniques.</li>
+            <li><strong>Retirement Solutions:</strong> Secure your future with personalized retirement plans.</li>
+        </ul>
+        <p>Our team of financial advisors is here to guide you every step of the way, ensuring that you make informed decisions to secure your financial future. Explore our services to find the perfect financial strategy tailored to your needs.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Finance Solutions. All rights reserved.</p>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="logoutModal" class="logout-modal">
+        <div class="logout-modal-content">
+            <h3>You have been logged out</h3>
+            <p>We hope to see you again soon!</p>
+            <button onclick="closeLogoutModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Simulate logout action
+        function logout() {
+            // Show the logout modal
+            document.getElementById('logoutModal').style.display = 'flex';
+            
+            // Redirect to login page after 3 seconds
+            setTimeout(function() {
+                window.location.href = "login.html"; // Redirect to login page
+            }, 3000); // 3 seconds delay before redirecting
+        }
+
+        // Close the logout modal
+        function closeLogoutModal() {
+            document.getElementById('logoutModal').style.display = 'none'; // Close modal
+        }
+
+        // Close modal when clicking outside of the modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('logoutModal')) {
+                closeLogoutModal();
+            }
+        }
+    </script>
+</body>
+</html>

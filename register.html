@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Finance Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .register-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0047ab;
+        }
+        .register-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .register-container input,
+        .register-container select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .register-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0047ab;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .register-container button:hover {
+            background-color: #003c8d;
+        }
+        footer {
+            background-color: #0047ab;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .login-link a {
+            color: #0047ab;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function validatePhoneNumber(input) {
+            // Allow only digits, restrict to 11 digits
+            input.value = input.value.replace(/\D/g, ''); // Remove non-digits
+            if (input.value.length > 11) {
+                input.value = input.value.slice(0, 11); // Limit to 11 digits
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Create Your Account</h2>
+        <form action="home2.html" method="POST">
+            
+            <!-- Full Name -->
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="full-name" placeholder="Full Name" required>
+
+            <!-- Username -->
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            <!-- Phone Number -->
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" 
+                   maxlength="11" oninput="validatePhoneNumber(this)" required 
+                   pattern="\d{11}" title="Please enter exactly 11 digits.">
+
+            <!-- Date of Birth -->
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <!-- Address -->
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Address" required>
+
+            <!-- Security Question -->
+            <label for="security-question">Security Question</label>
+            <select id="security-question" name="security-question" required>
+                <option value="">Select a Security Question</option>
+                <option value="mother-maiden">What is your mother's maiden name?</option>
+                <option value="first-pet">What was the name of your first pet?</option>
+                <option value="school-name">What is the name of your primary school?</option>
+                <option value="city-born">In what city were you born?</option>
+            </select>
+
+            <!-- Security Answer -->
+            <label for="security-answer">Security Answer</label>
+            <input type="text" id="security-answer" name="security-answer" placeholder="Security Answer" required>
+
+            <!-- Password -->
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+
+            <!-- Confirm Password -->
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Finance Solutions. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
